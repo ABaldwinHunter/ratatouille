@@ -1,0 +1,25 @@
+<div class="container">
+  <h1><%=category.name%></h1>
+  <table>
+    <tr>
+      <th>Recipe</th>
+      <th>Ingredients</th>
+      <th>Region</th>
+      <th>Created By</th>
+      <th>Submitted on</th>
+    </tr>
+       <%recipes.each do |recipe|%>
+       <tr>
+        <td><%=recipe.title%></td>
+        <td>
+          <%recipe.ingredients.order(:name).each do |ingredient|%>
+            <a href="/ingredient/<%=ingredient.id%>"><%=ingredient.name%></a><br>
+            <%end%>
+        </td>
+        <td><a href="/region/<%=recipe.region.id%>"><%=recipe.region.name%></a></td>
+        <td> <a href="/creator/<%=recipe.creator.id%>/recipes"><%=recipe.creator.username%></a></td>
+        <td><%=recipe.created_at%></td>
+       </tr>
+    <%end%>
+  </table>
+</div>
