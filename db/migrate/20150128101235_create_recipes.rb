@@ -8,6 +8,7 @@ class CreateRecipes < ActiveRecord::Migration
       t.text :description
       t.text :content
       t.string :url #user can provide recipe content or link
+      t.timestamps
     end
   end
 end

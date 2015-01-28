@@ -4,6 +4,7 @@ class CreateIngredients < ActiveRecord::Migration
       t.string :name
       t.references :type
       t.string :image_url
+      t.timestamps
     end
   end
 end

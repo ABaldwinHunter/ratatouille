@@ -3,6 +3,7 @@ class Favorites < ActiveRecord::Migration
     create_table :favorites do |t|
       t.references :user
       t.references :recipe
+      t.timestamps
     end
   end
 end

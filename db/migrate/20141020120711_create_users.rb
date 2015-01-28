@@ -8,6 +8,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :email
       t.string :location
       t.string :image_url
+      t.timestamps
     end
   end
 end
