@@ -23,7 +23,7 @@
     <a href="/"><img src="img/ratatouille_cheese_nb.gif" class="logo"></a>
     <div id="login-toolbar">
       <% if current_user %>
-        Hello <%= current_user.username %> || <a href="/logout">Logout</a> || <a href="/home">Home</a> || <a href="/home">My Recipes</a>
+        <a href="/logout">Logout</a> || <a href="/home">Home</a> || <a href="/home">My Recipes</a> || <a href="/category/all">By Category</a> || <a href="/region/all">By Region</a> || <a href="/ingredient/all">By Ingredient</a>
       <% else %>
         <a href="/login" class="login-link">Login</a> | <a href="/signup" class="signup-link">Sign up</a>
       <% end %>
