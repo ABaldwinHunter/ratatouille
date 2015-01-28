@@ -1,3 +1,4 @@
 class Substitution < ActiveRecord::Base
-  # Remember to create a migration!
+  belongs_to :ingredient
+  belongs_to :substitute, class_name: "Ingredient"
 end

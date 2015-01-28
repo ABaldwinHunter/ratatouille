@@ -1,3 +1,7 @@
 class RecipeIngredient < ActiveRecord::Base
-  # Remember to create a migration!
+  validates :name, presence: true
+  validates :name, uniqueness: true
+
+  has_many :recipes, through: :recipe_ingredients
+  bleongs_to :type
 end
