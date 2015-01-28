@@ -46,3 +46,12 @@ end
 get '/home' do
   erb :'auth/home'
 end
+
+get '/pofile/edit' do
+  erb :'auth/edit_profile', locals: {user: current_user}
+end
+
+put '/pofile' do
+  current_user.update(params[:user])
+  redirect '/home'
+end
