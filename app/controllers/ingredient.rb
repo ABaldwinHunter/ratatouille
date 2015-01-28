@@ -4,7 +4,7 @@ get '/ingredient/all' do
 end
 
 get '/ingredient/new' do
-  erb :'ingredient/all'
+  erb :'ingredient/new'
 end
 
 get '/ingredient/:id' do |id|
@@ -29,8 +29,14 @@ post '/ingredient' do
   redirect '/ingredient/all'
 end
 
-get '/ingredient/edit' do
+get '/ingredient/:id/edit' do |id|
   erb :'ingredient/all'
+end
+
+put '/ingredient/:id' do |id|
+  ingredient = Ingredient.find(id)
+  ingredient.update(params[:ingredient])
+  redirect '/ingredient/all'
 end
 
 

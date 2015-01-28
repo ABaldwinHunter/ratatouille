@@ -6,11 +6,13 @@ Substitutes:<br>
   <ul>
     <%subs.each do |sub|%>
     <li> <a href="/ingredient/<%=sub.id%>"><%=sub.name%></a></li>
+    <%end%>
   </ul>
 
   Recipes:<br>
   <ul>
-    <%recipe.each do |recipe|%>
+    <%recipes.each do |recipe|%>
     <li> <a href="/recipe/<%=recipe.id%>"><%=recipe.title%></a></li>
+    <%end%>
   </ul>
 </div>
