@@ -10,4 +10,14 @@ class Recipe < ActiveRecord::Base
 
   has_many :recipe_categories
   has_many :categories, through: :recipe_categories
+
+  # def add_correct_ingredients(ary_of_strings)
+  #   ingred_objs = []
+  #   ary_of_strings.each do |ingred|
+  #     ingred_objs << Ingredient.find_or_create_by(name: ingred.downcase)
+  #   end
+  #   ingred_objs.each do |ingred_obj|
+  #     self.ingredients << ingred_obj
+  #   end
+  # end
 end

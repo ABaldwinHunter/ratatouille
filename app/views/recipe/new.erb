@@ -1,5 +1,28 @@
 <div class="container">
+Submit a new recipe!<br>
 
+  <form action="/recipe" method="POST">
+    Select Category:
+    <select name="recipe_category[category]">
+      <%Category.all.order(:name).each do |category|%>
+      <option value="<%=category.id%>"><%= category.name%></option>
+      <%end%>
+    </select><br>
 
+    Select Region:
+    <select name="recipe[region_id]">
+      <%regions = Region.all.order(:name)%>
+      <% regions.each do |region| %>
+      <option value="<%= region.id %>"><%= region.name %></option>
+      <% end %>
+    </select><br>
 
+    Ingredients:<br> <textarea name="ingredients" placeholder="singular, separated by comma"></textarea><br>
+
+    Title: <input type="text" name="recipe[title]"><br>
+    Description: <input type="text" name="recipe[description]"><br>
+    Content: <br><textarea name="recipe[content]" placeholder="optional content"></textarea><br>
+    Link<input type="text" name="recipe[url]" placeholder="or link"><br>
+    <input type="submit" value="Submit!"><br>
+  </form><br>
 </div>

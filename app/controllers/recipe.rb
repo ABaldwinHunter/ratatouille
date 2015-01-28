@@ -3,7 +3,7 @@ get '/recipe/all' do
 end
 
 get '/recipe/new' do
-  erb :'recipe/all'
+  erb :'recipe/new', locals: {user: current_user}
 end
 
 get '/:cat_reg/recipe/:id' do |cat_reg, id|
@@ -12,6 +12,10 @@ get '/:cat_reg/recipe/:id' do |cat_reg, id|
 end
 
 post '/recipe' do
+  recipe = current_user.created_recipes.create(params[:recipe])
+  ingreds = Ingredient.parse(params[:ingredients])
+  recipe.ingredients << ingreds
+  redirect '/home'
 end
 
 get '/recipe/edit' do

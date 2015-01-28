@@ -20,4 +20,13 @@ class Ingredient < ActiveRecord::Base
     subs.uniq!
     return subs
   end
+
+  def self.parse(string)
+    result = []
+    ingredients = string.split(",")
+    ingredients.each do |ingredient|
+      result << Ingredient.find_or_create_by(name: ingredient.downcase)
+    end
+    result
+  end
 end
