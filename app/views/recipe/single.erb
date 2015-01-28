@@ -1,6 +1,32 @@
 <div class="container">
-
-
-
-
+<table>
+    <tr>
+      <th>Recipe</th>
+      <th>Ingredients</th>
+      <th>Category</th>
+      <th>Created By</th>
+      <th>Submitted on</th>
+      <th>Favorite?</th>
+    </tr>
+       <tr>
+        <td><%=recipe.title%></td>
+        <td>
+          <%recipe.ingredients.order(:name).each do |ingredient|%>
+            <a href="/ingredient/<%=ingredient.id%>"><%=ingredient.name%></a><br>
+            <%end%>
+        </td>
+        <td>
+          <%recipe.categories.order(:name).each do |category|%>
+            <a href="/category/<%=category.id%>"><%=category.name%></a><br>
+            <%end%>
+        </td>
+        <td> <a href="/creator/<%=recipe.creator.id%>/recipes"><%=recipe.creator.username%></a></td>
+        <td><%=recipe.created_at%></td>
+        <td>
+          <form action="/favorite/<%=recipe.id%>" method="POST">
+            <input type="submit" value="add to favorites">
+          </form>
+        </td>
+       </tr>
+  </table>
 </div>
