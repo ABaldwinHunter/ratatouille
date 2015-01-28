@@ -1,0 +1,8 @@
+<div class="container">
+  <h1>Select a Region</h1>
+  <ul>
+  <%regions.each do |region| %>
+  <li> <a href= "/region/<%=region.id%>"><%=region.name%> | <%=region.recipes.count%> Recipes </a></li>
+  <%end%>
+</ul>
+</div>
