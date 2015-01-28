@@ -14,11 +14,12 @@ post '/login' do
   user.try(:authenticate, params[:user][:password])
   session[:user_id] = user.id
 
-  if request.xhr?
-    erb :'auth/home' #locals: {user: user}, layout: false
+  if user && user.authenticate(params[:user][:password])
+    session[:user_id] = user.id
+    redirect "/home"
   else
     set_error('Login Failed, Please Try Again')
-    redirect "/"
+    redirect '/login'
   end
 end
 
