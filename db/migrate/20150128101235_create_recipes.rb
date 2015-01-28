@@ -2,7 +2,6 @@ class CreateRecipes < ActiveRecord::Migration
   def change
     create_table :recipes do |t|
       t.references :creator
-      t.references :category
       t.references :region
       t.integer :rating
       t.string :title

@@ -3,6 +3,7 @@ class CreateIngredients < ActiveRecord::Migration
     create_table :ingredients do |t|
       t.string :name
       t.references :type
+      t.string :image_url
     end
   end
 end
