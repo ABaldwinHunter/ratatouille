@@ -1,5 +1,16 @@
 <div class="container">
 
+  <h5><%= ingredient.name%></h5>
 
+Substitutes:<br>
+  <ul>
+    <%subs.each do |sub|%>
+    <li> <a href="/ingredient/<%=sub.id%>"><%=sub.name%></a></li>
+  </ul>
 
+  Recipes:<br>
+  <ul>
+    <%recipe.each do |recipe|%>
+    <li> <a href="/recipe/<%=recipe.id%>"><%=recipe.title%></a></li>
+  </ul>
 </div>

@@ -27,6 +27,7 @@ class Ingredient < ActiveRecord::Base
     ingredients.each do |ingredient|
       result << Ingredient.find_or_create_by(name: ingredient.downcase)
     end
+    result.delete(self)
     result
   end
 end

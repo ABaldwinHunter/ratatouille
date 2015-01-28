@@ -1,5 +1,7 @@
 <div class="container">
-
-
-
+  <%ingredients.each do |ingredient|%>
+  <ul>
+    <li> <a href="/ingredient/<%=ingredient.id%>"><%=ingredient.name%></a> </li>
+  </ul>
+  <%end%>
 </div>

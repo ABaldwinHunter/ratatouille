@@ -2,6 +2,12 @@ get '/recipe/all' do
   erb :'recipe/all'
 end
 
+get '/user/:id/created_recipes' do |id|
+  user = User.find(id)
+  recipes = user.created_recipes
+  erb :'recipe/all', locals: {recipes: recipes, user: user}
+end
+
 get '/recipe/new' do
   erb :'recipe/new', locals: {user: current_user}
 end
@@ -22,3 +28,11 @@ get '/recipe/edit' do
   erb :'recipe/all'
 end
 
+
+delete '/recipe/:id' do |id|
+  recipe = Recipe.find(id)
+  if current_user == recipe.creator
+    recipe.destroy
+  end
+  redirect '/home'
+end
