@@ -1,4 +1,7 @@
 <div class="container">
+
+  My Favorite Recipes
+
   <table>
     <tr>
       <th>Recipe</th>
@@ -6,6 +9,7 @@
       <th>Category</th>
       <th>Created By</th>
       <th>Submitted on</th>
+      <th></th>
     </tr>
        <%recipes.each do |recipe|%>
        <tr>
@@ -22,6 +26,11 @@
         </td>
         <td> <a href="/creator/<%=recipe.creator.id%>/recipes"><%=recipe.creator.username%></a></td>
         <td><%=recipe.created_at%></td>
+        <td> <form action="/favorite_recipe/<%=recipe.id%>" method="POST" class="delete_favorite">
+          <input type="hidden" name="_method" value="DELETE">
+          <input type="submit" value="X">
+        </form>
+        </td>
        </tr>
     <%end%>
   </table>
