@@ -1,3 +1,4 @@
 class Type < ActiveRecord::Base
-  # Remember to create a migration!
+  validates :name, uniqueness: true
+  has_many :ingredients
 end
