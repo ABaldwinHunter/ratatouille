@@ -1,6 +1,7 @@
 # ratatouille
 Find recipes for miscellaneous items in kitchen
 
-Search out and create recipes with ingredients available in your kitchen. 
+Search for recipes and create your own to add to the database. 
 
-Waste nothing, with creative recipes for odds and ends.
+Waste less, with creative recipes for odds and ends.
+
