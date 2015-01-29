@@ -22,7 +22,7 @@ $(document).ready(function() {
       $('#login-toolbar').remove();
     })
   });
-    $('.container').on('submit', 'form.delete_recipe', function (event) {
+    $('form.delete_recipe').on('submit', 'form.delete_recipe', function (event) {
     event.preventDefault();
     var $target = $(event.target);
     $.ajax({
@@ -33,9 +33,6 @@ $(document).ready(function() {
       $target.closest('tr').remove();
     });
   });
-
-
-    console.log('$(form.delete_favorite)', $('form.delete_favorite'));
 
     $('form.delete_favorite').on('submit', function (event) {
     event.preventDefault();
@@ -58,6 +55,18 @@ $(document).ready(function() {
       data: $target.serialize(),
     }).done(function() {
       alert("Successfully added to favorites!");
+    });
+  });
+    $('#content').on('submit', 'form.login_form', function (event) {
+    event.preventDefault();
+    var $target = $(event.target);
+    $.ajax({
+      url: $target.attr('action'),
+      type: 'POST',
+      data: $('form.login_form').serialize(),
+    }).done(function(response) {
+      $('input[type=text]').val("");
+      $('div#errors').html(response);
     });
   });
 });

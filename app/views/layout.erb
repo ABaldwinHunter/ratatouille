@@ -6,10 +6,9 @@
   <link rel="stylesheet" href="/css/normalize.css">
   <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css" />
 
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
   <script src="/js/application.js"></script>
-  <script src="/js/mousetrap.js"></script>
 
   <link rel="stylesheet" href="/css/application.css">
   <!-- Load Vollkorn font -->
@@ -26,7 +25,7 @@
       <% else %>
         <a href="/login" class="login-link">Login</a> | <a href="/signup" class="signup-link">Sign up</a>
       <% end %>
-      <em><%=display_error%></em>
+      <div id="errors"><em><%=display_error%></em></div>
   </header>
   <%= yield %>
 </div>

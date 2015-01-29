@@ -16,14 +16,17 @@ end
 post '/login' do
   user = User.find_by(email: params[:user][:email])
   user.try(:authenticate, params[:user][:password])
-  session[:user_id] = user.id
 
   if user && user.authenticate(params[:user][:password])
     session[:user_id] = user.id
     redirect "/home"
   else
     set_error('Login Failed, Please Try Again')
-    redirect '/login'
+    if request.xhr?
+      return display_error
+    else
+      redirect '/login'
+    end
   end
 end
 
