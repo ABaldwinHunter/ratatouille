@@ -28,7 +28,11 @@ post '/login' do
 end
 
 get '/signup' do
-  erb :'auth/signup'
+  if request.xhr?
+    erb :'auth/signup', layout: false
+  else
+    erb :'auth/signup'
+  end
 end
 
 post '/signup' do
