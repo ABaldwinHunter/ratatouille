@@ -6,7 +6,11 @@ get '/' do
 end
 
 get '/login' do
-  erb :'auth/login'
+  if request.xhr?
+    return erb :'auth/login', layout: false
+  else
+    erb :'auth/login'
+  end
 end
 
 post '/login' do

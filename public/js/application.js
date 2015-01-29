@@ -1,7 +1,24 @@
 $(document).ready(function() {
-  // This is called after the document has loaded in its entirety
-  // This guarantees that any elements we bind to will exist on the page
-  // when we try to bind to them
+  $('.login-link').on('click', function(event){
+    var $target = $(event.target)
+    event.preventDefault();
+    $.ajax({
+      url: "/login",
+      type: "GET"
+    }).done(function(response){
+      // $target.append(response);
+      $('#login-toolbar').replaceWith(response);
+    })
+  })
 
-  // See: http://docs.jquery.com/Tutorials:Introducing_$(document).ready()
+    $('.container').on('submit', 'form.delete_recipe', function (event) {
+    event.preventDefault();
+    var $target = $(event.target);
+    $.ajax({
+      url: $target.attr('action'),
+      type: 'DELETE'
+    }).done(function(response) {
+      $target.closest('tr').remove();
+    });
+  });
 });
