@@ -57,16 +57,16 @@ $(document).ready(function() {
       alert("Successfully added to favorites!");
     });
   });
-    $('#content').on('submit', 'form.login_form', function (event) {
-    event.preventDefault();
-    var $target = $(event.target);
-    $.ajax({
-      url: $target.attr('action'),
-      type: 'POST',
-      data: $('form.login_form').serialize(),
-    }).done(function(response) {
-      $('input[type=text]').val("");
-      $('div#errors').html(response);
-    });
-  });
+  //   $('#content').on('submit', 'form.login_form', function (event) {
+  //   event.preventDefault();
+  //   var $target = $(event.target);
+  //   $.ajax({
+  //     url: $target.attr('action'),
+  //     type: 'POST',
+  //     data: $('form.login_form').serialize(),
+  //   }).done(function(response) {
+  //     $('input[type=text]').val("");
+  //     $('div.welcome').append("<div>"+ response + "</div>");
+  //   });
+  // });
 });
