@@ -56,6 +56,11 @@ get '/home' do
   erb :'auth/home'
 end
 
+get '/profile/:id' do |id|
+  user = User.find(id)
+  erb :'auth/profile', locals: {user: user}
+end
+
 get '/pofile/edit' do
   erb :'auth/edit_profile', locals: {user: current_user}
 end

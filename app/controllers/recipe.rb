@@ -12,10 +12,6 @@ get '/recipe/new' do
   erb :'recipe/new', locals: {user: current_user}
 end
 
-get '/cat_reg/recipe/:id' do |id|
-  redirect '/recipe/#{id}'
-end
-
 get '/recipe/:id' do |id|
   recipe = Recipe.find(id)
   erb :'recipe/single', locals: {recipe: recipe}

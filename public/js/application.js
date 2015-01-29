@@ -6,7 +6,8 @@ $(document).ready(function() {
       url: "/login",
       type: "GET"
     }).done(function(response){
-      $('#login-toolbar').replaceWith(response);
+      $('.welcome').append(response);
+      $('#login-toolbar').remove();
     })
   });
 

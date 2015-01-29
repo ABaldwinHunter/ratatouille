@@ -10,7 +10,7 @@
     </tr>
        <%recipes.each do |recipe|%>
        <tr>
-        <td><a href ="recipe/<%=recipe.id%>"><%=recipe.title%></a></td>
+        <td><a href ="/recipe/<%=recipe.id%>"><%=recipe.title%></a></td>
           <td>
           <%recipe.ingredients.order(:name).each do |ingredient|%>
             <a href="/ingredient/<%=ingredient.id%>"><%=ingredient.name%></a><br>
