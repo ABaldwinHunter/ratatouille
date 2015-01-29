@@ -10,12 +10,20 @@ post '/favorite/:id' do |id|
   unless user.favorite_recipes.include?(recipe)
     Favorite.create(user: user, recipe: recipe)
   end
-  redirect '/home'
+
+  if request.xhr?
+    return
+  else
+    redirect '/home'
+  end
 end
 
-
-delete '/favorite_recipe/:id' do |id|
-  fav = Favorite.where(["user_id = ? recipe_id = ?", current_user.id, id])
+delete '/favorite/:id' do |id|
+  fav = Favorite.where(["user_id = ? AND recipe_id = ?", current_user.id, id.to_i])[0]
   fav.destroy
-  redirect '/home'
+  if request.xhr?
+    return
+  else
+    redirect '/home'
+  end
 end

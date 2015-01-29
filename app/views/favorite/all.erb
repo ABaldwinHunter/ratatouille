@@ -28,7 +28,7 @@
         </td>
         <td> <a href="/creator/<%=recipe.creator.id%>/recipes"><%=recipe.creator.username%></a></td>
         <td><%=recipe.created_at%></td>
-        <td> <form action="/favorite_recipe/<%=recipe.id%>" method="POST" class="delete_favorite">
+        <td> <form action="/favorite/<%=recipe.id%>" method="POST" class="delete_favorite">
           <input type="hidden" name="_method" value="DELETE">
           <input type="submit" value="X">
         </form>
@@ -36,8 +36,5 @@
        </tr>
     <%end%>
   </table>
-
-
-
 
 </div>

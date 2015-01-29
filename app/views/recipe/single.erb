@@ -23,7 +23,7 @@
         <td> <a href="/creator/<%=recipe.creator.id%>/recipes"><%=recipe.creator.username%></a></td>
         <td><%=recipe.created_at%></td>
         <td>
-          <form action="/favorite/<%=recipe.id%>" method="POST">
+          <form action="/favorite/<%=recipe.id%>" method="POST" class="add_favorite">
             <input type="submit" value="add to favorites">
           </form>
         </td>

@@ -35,5 +35,9 @@ delete '/recipe/:id' do |id|
   if current_user == recipe.creator
     recipe.destroy
   end
-  redirect '/home'
+  if request.xhr?
+    return "Hello world"
+  else
+    redirect '/home'
+  end
 end
