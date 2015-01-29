@@ -6,7 +6,6 @@ $(document).ready(function() {
       url: "/login",
       type: "GET"
     }).done(function(response){
-      // $target.append(response);
       $('#login-toolbar').replaceWith(response);
     })
   });
@@ -18,8 +17,8 @@ $(document).ready(function() {
       url: "/signup",
       type: "GET"
     }).done(function(response){
-      // $target.append(response);
-      $('#login-toolbar').replaceWith(response);
+      $('.welcome').append(response);
+      $('#login-toolbar').remove();
     })
   });
 
